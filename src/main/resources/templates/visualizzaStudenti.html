@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Visualizza studenti</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="stylesheet" th:href="@{/css/Universita.css}" />
+</head>
+<header>
+	<h1>Universita' Atlantide</h1>
+	<h3>Lista degli studenti</h3>
+</header>
+<body>
+
+	<table>
+	<thead>
+	<tr><th>Matricola</th>
+	<th>Nome</th>
+	<th>Cognome</th>
+	<th>Data di nascita</th>
+	<th>E-mail</th>
+	<th>Indirizzo</th>
+	<th>Citta'</th>
+	<th>Codice corso</th>
+	<th>Materia corso</th>
+	</tr>
+	</thead>
+		<!-- th prende la collection e la cicla per tutti gli elementi, a runtime toglie i th: e mette i dati effettivi -->
+		<div th:each="s : ${studenti}">
+		<tbody>
+		<tr>
+
+			<td th:text="${s.matricola}"></td>
+			<td th:text="${s.nome}"></td>
+			<td th:text="${s.cognome}"></td>
+			<td th:text="${s.dataNascita}"></td>
+			<td th:text="${s.email}"></td>
+			<td th:text="${s.indirizzo}"></td>
+			<td th:text="${s.citta}"></td>
+			<td th:text="${s.corsoLaurea.codice}"></td>
+			<td th:text="${s.corsoLaurea.nome}"></td>
+		</tr>
+		</tbody>
+		</div>
+	</table>
+
+</body>
+<footer>
+		<p>Created by Universita' Atlantide &copy; 2022</p>
+	</footer>
+</html>
