@@ -51,10 +51,8 @@ public class StudenteController {
 
 		getDummyDb().aggiungiStudente(studente);
 
-		/*model.addAttribute("ordini", getDummyDb().getAllOrdini());
-		return "visualizzaOrdini";*/
+		
 		return new ModelAndView("visualizzaStudenti", "studenti", getDummyDb().getAllStudenti());
 	}
-
-
+	
 }
