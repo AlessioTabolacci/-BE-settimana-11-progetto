@@ -21,7 +21,7 @@ import it.gestionesegreteriastudenti.model.Studente;
 
 @Controller
 public class StudenteController {
-	
+
 	/*
 	 *  ------> Per accedere alla WebApp basta andare all'indirizzo 
 	 * 	http://localhost:8080 e partirà in automatico la homepage da cui possiamo accedere a tutte le funzionalità <------
@@ -55,7 +55,7 @@ public class StudenteController {
 		getDummyDb().aggiungiStudente(studente);
 		return visualizzaStudenti();
 	}
-	
+
 	@GetMapping("/formaggiorna/{matricola}")
 	public ModelAndView mostraFormAggiornaStudente(@PathVariable String matricola, Model model) {
 		List<CorsoLaurea> corsi = getDummyDb().getCorsi();
@@ -65,7 +65,7 @@ public class StudenteController {
 		mav.addObject("studente", s);
 		return mav;
 	}
-	
+
 	@PostMapping("/aggiornastudente/{matricola}")
 	public ModelAndView aggiornaStudente(@Valid @ModelAttribute ("studente") Studente studente, @PathVariable String matricola, BindingResult result, Model model) {
 		studente.setMatricola(matricola);

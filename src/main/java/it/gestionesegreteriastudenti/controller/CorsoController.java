@@ -20,13 +20,13 @@ import it.gestionesegreteriastudenti.model.DummyDB;
 
 @Controller
 public class CorsoController {
-	
-/*
- *  ------> Per accedere alla WebApp basta andare all'indirizzo 
- * 	http://localhost:8080 e partirà in automatico la homepage da cui possiamo accedere a tutte le funzionalità <------
- */
 
-	
+	/*
+	 *  ------> Per accedere alla WebApp basta andare all'indirizzo 
+	 * 	http://localhost:8080 e partirà in automatico la homepage da cui possiamo accedere a tutte le funzionalità <------
+	 */
+
+
 	@Autowired
 	ApplicationContext ctx;
 
@@ -56,7 +56,7 @@ public class CorsoController {
 		getDummyDb().aggiungiCorso(corso);
 		return visualizzaCorsi();
 	}
-	
+
 	@GetMapping("/formaggiornacorso/{codice}")
 	public ModelAndView mostraFormAggiornaCorso(@PathVariable String codice, Model model) {
 		List<CorsoLaurea> corsi = getDummyDb().getCorsi();
@@ -66,7 +66,7 @@ public class CorsoController {
 		mav.addObject("corsi", corsi);
 		return mav;
 	}
-	
+
 	@PostMapping("/aggiornacorso/{codice}")
 	public ModelAndView aggiornaCorso(@Valid @ModelAttribute ("corso") CorsoLaurea corso, @PathVariable String codice, BindingResult result, Model model) {
 		corso.setCodice(codice);

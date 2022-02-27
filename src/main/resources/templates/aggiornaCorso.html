@@ -17,7 +17,6 @@
 		th:action="@{/aggiornacorso/{codice} (codice=${corso.codice})}"
 		th:object="${corso}">
 
-
 		<span> Codice corso:</span><input class="spaziatura" type="text"
 			th:field="*{codice}" id="codice" th:disabled="${codice != null}">
 		<br> <br> <span>Materia:</span><input class="spaziatura"
