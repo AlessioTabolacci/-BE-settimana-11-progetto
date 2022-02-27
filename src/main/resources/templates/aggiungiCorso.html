@@ -11,26 +11,34 @@
 	<h3>Aggiungi nuovo corso</h3>
 </header>
 <body>
+	<br>
+	<br>
 	<form action="#" method="post" th:action="@{/aggiungicorso}"
 		th:object="${corso}">
 
 
-		Codice corso<input type="text" th:field="*{codice}" id="codice"
-			placeholder="Es.B58"> <br> <br> Materia<input
-			type="text" th:field="*{nome}" id="nome"
-			placeholder="Inserisci qui la materia"> <br>
+		<span>Codice corso:</span><input class="spaziatura" type="text"
+			th:field="*{codice}" id="codice" placeholder="Es.B58"> <br>
+		<br> <span>Materia:</span><input class="spaziatura" type="text"
+			th:field="*{nome}" id="nome" placeholder="Inserisci qui la materia">
+		<br> <br> <span>Indirizzo sede:</span><input
+			class="spaziatura" type="text" th:field="*{indirizzo}" id="indirizzo"
+			placeholder="Inserisci qui l'indirizzo della sede"> <br>
+		<br> <span>numero esami da sostenere:</span><input
+			class="spaziatura" type="number" th:field="*{numeroEsami}"
+			id="numeroEsami" placeholder="Inserisci qui il numero di esami"
+			min="10"> <br> <br> <br> <input type="submit"
+			value="Inserisci corso">
 
-		<br> Indirizzo sede<input type="text" th:field="*{indirizzo}"
-			id="indirizzo" placeholder="Inserisci qui l'indirizzo della sede">
-		<br> <br> numero di esami da sostenere<input type="number"
-			th:field="*{numeroEsami}" id="numeroEsami"
-			placeholder="Inserisci qui il numero di esami" min="10"> <br> <br>
-
-		<br> <input type="submit" value="Inserisci corso">
-
+	</form>
+	<br>
+	<br>
+	<form action="http://localhost:8080">
+		<button type="submit">Torna alla home</button>
 	</form>
 </body>
 <footer>
-	<p>Created by Universita' Atlantide &copy; 2022</p>
+	<p>Created by Alessio Tabolacci per l'Universita' Atlantide &copy;
+		2022</p>
 </footer>
 </html>

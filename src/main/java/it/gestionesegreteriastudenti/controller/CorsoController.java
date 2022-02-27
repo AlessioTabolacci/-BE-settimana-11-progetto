@@ -21,6 +21,12 @@ import it.gestionesegreteriastudenti.model.DummyDB;
 @Controller
 public class CorsoController {
 	
+/*
+ *  ------> Per accedere alla WebApp basta andare all'indirizzo 
+ * 	http://localhost:8080 e partirà in automatico la homepage da cui possiamo accedere a tutte le funzionalità <------
+ */
+
+	
 	@Autowired
 	ApplicationContext ctx;
 

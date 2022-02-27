@@ -11,60 +11,48 @@
 	<h3>Aggiungi uno studente</h3>
 </header>
 <body>
-	<form action="#" method="post"
-		th:action="@{/aggiungistudente}" th:object="${studente}">
+	<br>
+	<br>
+	<form action="#" method="post" th:action="@{/aggiungistudente}"
+		th:object="${studente}">
 
-			
-			Matricola<input type="text" th:field="*{matricola}" id="matricola"
-				placeholder="Inserisci qui la matricola"> <br>
-				
-				<br>
-		
-			Nome<input type="text" th:field="*{nome}" id="nome"
-				placeholder="Inserisci qui il nome"> <br>
-				
-				<br>
-			
-			Cognome<input type="text" th:field="*{cognome}" id="cognome"
-				placeholder="Inserisci qui il cognome"> <br>
-				
-				<br>
-			
-			Data di nascita<input type="date" pattern="yyyy-MM-dd"
-				th:field="*{dataNascita}" id="dataNascita"> <br>
-				
-				<br>
-			
-			E-mail<input type="email" th:field="*{email}" id="email"
-				placeholder="Inserisci qui l'e-mail"> <br>
-				
-				<br>
-		
-		Indirizzo<input type="text" th:field="*{indirizzo}" id="indirizzo"
-			placeholder="Inserisci qui l'indirizzo"> <br>
-			
-			<br>
-			
-			Citta'<input type="text" th:field="*{citta}" id="citta"
-				placeholder="Inserisci qui la citta'"> <br>
-				
-				<br> 
-		
-		<select th:field="*{corsoLaurea}">
-		<div th:each="c:${corsi}">
-		<option th:text="${c.nome}" th:value="${c.codice}"></option>
-		</div>
-		</select> <br>
-		
-		<br>
 
-		
-		
-		 <input type="submit" value="Inserisci studente">
-	
+		<span>Matricola:</span><input class="spaziatura" type="text"
+			th:field="*{matricola}" id="matricola"
+			placeholder="Inserisci qui la matricola"> <br> <br>
+
+		<span>Nome:</span><input class="spaziatura" type="text"
+			th:field="*{nome}" id="nome" placeholder="Inserisci qui il nome">
+		<br> <br> <span>Cognome:</span><input class="spaziatura"
+			type="text" th:field="*{cognome}" id="cognome"
+			placeholder="Inserisci qui il cognome"> <br> <br> <span>Data
+			di nascita:</span><input class="spaziatura" type="date" pattern="yyyy-MM-dd"
+			th:field="*{dataNascita}" id="dataNascita"> <br> <br>
+
+		<span>E-mail:</span><input class="spaziatura" type="email"
+			th:field="*{email}" id="email" placeholder="Inserisci qui l'e-mail">
+		<br> <br> <span>Indirizzo:</span><input class="spaziatura"
+			type="text" th:field="*{indirizzo}" id="indirizzo"
+			placeholder="Inserisci qui l'indirizzo"> <br> <br>
+
+		<span>Citta':</span><input class="spaziatura" type="text"
+			th:field="*{citta}" id="citta" placeholder="Inserisci qui la citta'">
+		<br> <br> <span>Seleziona corso</span><select
+			class="spaziatura" th:field="*{corsoLaurea}">
+			<div th:each="c:${corsi}">
+				<option th:text="${c.nome}" th:value="${c.codice}"></option>
+			</div>
+		</select> <br> <br> <input type="submit" value="Inserisci studente">
+
+	</form>
+	<br>
+	<br>
+	<form action="http://localhost:8080">
+		<button type="submit">Torna alla home</button>
 	</form>
 </body>
 <footer>
-		<p>Created by Universita' Atlantide &copy; 2022</p>
-	</footer>
+	<p>Created by Alessio Tabolacci per l'Universita' Atlantide &copy;
+		2022</p>
+</footer>
 </html>
