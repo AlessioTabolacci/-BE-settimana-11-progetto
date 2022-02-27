@@ -13,39 +13,45 @@
 <body>
 
 	<table>
-	<thead>
-	<tr><th>Matricola</th>
-	<th>Nome</th>
-	<th>Cognome</th>
-	<th>Data di nascita</th>
-	<th>E-mail</th>
-	<th>Indirizzo</th>
-	<th>Citta'</th>
-	<th>Codice corso</th>
-	<th>Materia corso</th>
-	</tr>
-	</thead>
+		<thead>
+			<tr>
+				<th>Matricola</th>
+				<th>Nome</th>
+				<th>Cognome</th>
+				<th>Data di nascita</th>
+				<th>E-mail</th>
+				<th>Indirizzo</th>
+				<th>Citta'</th>
+				<th>Codice corso</th>
+				<th>Materia corso</th>
+			</tr>
+		</thead>
 		<!-- th prende la collection e la cicla per tutti gli elementi, a runtime toglie i th: e mette i dati effettivi -->
-		<div th:each="s : ${studenti}">
-		<tbody>
-		<tr>
+		<div th:each="s : ${dummydb.getStudenti()}">
+			<tbody>
+				<tr>
 
-			<td th:text="${s.matricola}"></td>
-			<td th:text="${s.nome}"></td>
-			<td th:text="${s.cognome}"></td>
-			<td th:text="${s.dataNascita}"></td>
-			<td th:text="${s.email}"></td>
-			<td th:text="${s.indirizzo}"></td>
-			<td th:text="${s.citta}"></td>
-			<td th:text="${s.corsoLaurea.codice}"></td>
-			<td th:text="${s.corsoLaurea.nome}"></td>
-		</tr>
-		</tbody>
+					<td th:text="${s.getMatricola}"></td>
+					<td th:text="${s.getNome}"></td>
+					<td th:text="${s.getCognome}"></td>
+					<td th:text="${s.getDataNascita}"></td>
+					<td th:text="${s.getEmail}"></td>
+					<td th:text="${s.getIndirizzo}"></td>
+					<td th:text="${s.getCitta}"></td>
+					<td th:text="${s.corsoLaurea.getCodice}"></td>
+					<td th:text="${s.corsoLaurea.getNome}"></td>
+					<td><a
+						th:href="@{/formaggiorna/{matricola}(matricola=${s.getMatricola()})}">Aggiorna</a></td>
+					<td><a
+						th:href="@{/eliminastudente/{matricola}(matricola=${s.getMatricola()})}"
+						onclick="return confirm('Confermi di voler eliminare questo studente?')">Elimina</a></td>
+				</tr>
+			</tbody>
 		</div>
 	</table>
 
 </body>
 <footer>
-		<p>Created by Universita' Atlantide &copy; 2022</p>
-	</footer>
+	<p>Created by Universita' Atlantide &copy; 2022</p>
+</footer>
 </html>

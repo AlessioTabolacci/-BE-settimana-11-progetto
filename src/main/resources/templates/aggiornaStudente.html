@@ -2,57 +2,57 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Inserisci studente</title>
+<title>Aggiorna studente</title>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 <link rel="stylesheet" th:href="@{/css/Universita.css}" />
 </head>
 <header>
 	<h1>Universita' Atlantide</h1>
-	<h3>Aggiungi uno studente</h3>
+	<h3>Aggiorna studente</h3>
 </header>
 <body>
 	<form action="#" method="post"
-		th:action="@{/aggiungistudente}" th:object="${studente}">
+		th:action="@{/aggiornastudente/{matricola} (matricola=${studente.getMatricola()})}" th:object="${studente}">
 
 			
 			Matricola<input type="text" th:field="*{matricola}" id="matricola"
-				placeholder="Inserisci qui la matricola"> <br>
+				th:disabled="${matricola != null}"> <br>
 				
 				<br>
 		
 			Nome<input type="text" th:field="*{nome}" id="nome"
-				placeholder="Inserisci qui il nome"> <br>
+				placeholder="Inserisci qui il nome" required="required"> <br>
 				
 				<br>
 			
 			Cognome<input type="text" th:field="*{cognome}" id="cognome"
-				placeholder="Inserisci qui il cognome"> <br>
+				placeholder="Inserisci qui il cognome" required="required"> <br>
 				
 				<br>
 			
 			Data di nascita<input type="date" pattern="yyyy-MM-dd"
-				th:field="*{dataNascita}" id="dataNascita"> <br>
+				th:field="*{dataNascita}" id="dataNascita" required="required"> <br>
 				
 				<br>
 			
 			E-mail<input type="email" th:field="*{email}" id="email"
-				placeholder="Inserisci qui l'e-mail"> <br>
+				placeholder="Inserisci qui l'e-mail" required="required"> <br>
 				
 				<br>
 		
 		Indirizzo<input type="text" th:field="*{indirizzo}" id="indirizzo"
-			placeholder="Inserisci qui l'indirizzo"> <br>
+			placeholder="Inserisci qui l'indirizzo" required="required"> <br>
 			
 			<br>
 			
 			Citta'<input type="text" th:field="*{citta}" id="citta"
-				placeholder="Inserisci qui la citta'"> <br>
+				placeholder="Inserisci qui la citta'" required="required"> <br>
 				
 				<br> 
 		
 		<select th:field="*{corsoLaurea}">
 		<div th:each="c:${corsi}">
-		<option th:text="${c.nome}" th:value="${c.codice}"></option>
+		<option th:text="${c.getNome}" th:value="${c.getCodice}"></option>
 		</div>
 		</select> <br>
 		
@@ -60,11 +60,13 @@
 
 		
 		
-		 <input type="submit" value="Inserisci studente">
+		 <input type="submit" value="Aggiorna studente">
 	
 	</form>
 </body>
 <footer>
 		<p>Created by Universita' Atlantide &copy; 2022</p>
 	</footer>
+</html>
+</body>
 </html>

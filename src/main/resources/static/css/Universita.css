@@ -50,10 +50,14 @@ body {
 }
 
 footer {
-	background: #acb3b9;
+	background: #8B0000; color : white;
 	text-align: center;
-	margin-top: 260px;
 	padding: 15px;
+	position: fixed;
+	left: 0;
+	bottom: 0;
+	width: 100%;
+	
 }
 
 table {
@@ -69,11 +73,21 @@ td, th {
 header {
 	padding: 10px;
 	text-align: center;
-	background: #acb3b9; color : white;
+	background: #8B0000; color : white;
 	font-size: 15px;
 	color: white;
 }
 
 thead {
 	font-weight: bold;
+}
+.homepage {
+	font-size: 30px;
+	text-align: center;
+	margin-top: 85px;	
+}
+.titolo {
+	font-size:15px;
+	text-align: center;
+	margin-top: 40px;
 }

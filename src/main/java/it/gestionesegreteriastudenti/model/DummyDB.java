@@ -1,48 +1,64 @@
 package it.gestionesegreteriastudenti.model;
 
-import java.util.Collection;
-import java.util.HashMap;
-import java.util.Map;
+import java.util.ArrayList;
+import java.util.List;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
+import org.springframework.stereotype.Component;
 
-@Data
-@AllArgsConstructor
+import lombok.Getter;
+
+@Component
+@Getter
 public class DummyDB {
 
-	private final Map<String, Studente> studenti = new HashMap<>();
-	private final Map<String, CorsoLaurea> corsi = new HashMap<>();
+	private final List<Studente> studenti = new ArrayList<>();
+	private final List<CorsoLaurea> corsi = new ArrayList<>();
 
-	public Collection<Studente> getAllStudenti() {
-		return studenti.values();
-	}
-
-	public Collection<CorsoLaurea> getAllCorsi(){
-		return corsi.values();
-	}
 
 	public void aggiungiStudente(Studente s) {
-		studenti.put(s.getMatricola(), s);
+		studenti.add(s);
 	}
 
-	public void eliminaStudente(String matricola) {
-		studenti.remove(matricola);
+	public boolean eliminaStudente(String matricola) {
+		for (int i = 0; i < studenti.size(); i++) {
+			if(studenti.get(i).getMatricola().equals(matricola)) {
+				studenti.remove(i);
+				return true;
+			}
+		}
+		return false;
 	}
 
-	public void aggiornaStudente(Studente s) {
-		studenti.put(s.getMatricola(), s);
-	}
+
 
 	public void aggiungiCorso(CorsoLaurea corso) {
-		corsi.put(corso.getCodice(), corso);
+		corsi.add(corso);
+	}
+
+	public boolean eliminaCorso(String codice) {
+		for (int i = 0; i < corsi.size(); i++) {
+			if(corsi.get(i).getCodice().equals(codice)) {
+				corsi.remove(i);
+				return true;
+			}
+		}
+		return false;
 	}
 
 	public Studente getStudenteByMatricola(String matricola) {
-		return studenti.get(matricola);
+		for (Studente studenti : studenti) {
+			if(studenti.getMatricola().equals(matricola))
+				return studenti;
+		}
+		return null;
 	}
 
 	public CorsoLaurea getCorsoByCodice(String codice) {
-		return corsi.get(codice);
+		for (CorsoLaurea corsoLaurea : corsi) {
+			if(corsoLaurea.getCodice().equals(codice))
+				return corsoLaurea;
+		}
+		return null;
+
 	}
 }
