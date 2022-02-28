@@ -94,3 +94,9 @@ thead {
 .spaziatura {
 	margin-left: 10px;
 }
+
+div.logo {
+	margin-top: 20px;
+	width: 10%; 
+	height: auto
+}
